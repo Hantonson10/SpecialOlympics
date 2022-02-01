@@ -1,0 +1,11 @@
+body {
+    background-color: #f3f3f3;
+}
+
+#navbarColum{
+    background-color: rgb(37,40,58) !important;
+}
+
+a, a:visited{
+    color: white !important;
+}
