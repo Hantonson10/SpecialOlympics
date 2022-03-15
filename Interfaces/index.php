@@ -14,6 +14,8 @@
     <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="css/style.css">
     <script src="js/index.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.10.20/datatables.min.css">
+    <script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.10.20/datatables.min.js"></script>
     
     <!-- en el style.css sobreescribimos algunos de los atributos de diseño como el color de la side navbar (cambiado al color
     de la navbar de la pagina de specialolympicsaragon , y las letras a blanco para que quede mejor el contraste.-->
@@ -22,18 +24,18 @@
 
 <body>
     <div class="container-fluid">
-        <div class="row flex-nowrap">
+        <div class="row flex-wrap">
             <div id="navbarColum" class="col-auto col-md-3 col-xl-2 px-sm-2 px-0">
                 <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
                     <a href="http://specialolympicsaragon.es/">
-                        <img src="/img/icons/logoSOwhite.png" class="mx-auto d-block d-flex align-items-center pb-3 mb-md-0 me-md-auto"
+                        <img src="img/icons/logoSOwhite.png" class="mx-auto d-block d-flex align-items-center pb-3 mb-md-0 me-md-auto"
                         style="width:60%;height:60%;"> <!-- ajustamos el tamaño del logo, modificar ambos % a la vez.-->
                     </a>
                     
                     <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
 <!-- -------------------------------------------------------------------- -->
                         <li class="nav-item">
-                            <a href="#" class="nav-link align-middle px-0">
+                            <a id="#navEventos" href="#" onclick="cargaFiltros()" class="nav-link align-middle px-0">
                                 <i class="fs-4 bi-house"></i> <span class="ms-1 d-none d-sm-inline">Eventos</span>
                             </a>
                         </li>
@@ -52,6 +54,7 @@
                                 </li>
                             </ul>
                         </li>
+
 
 <!-- Con este fragmento de arriba podemos crear item con desplegable -->
                         <li>
@@ -118,8 +121,57 @@
             </div>
             
             
-            <div class="col py-3">
-                Content area...
+            <div class="col py-3 flex-column" id="capaContenido"> <!-- capa derecha de la pantalla donde se muestran filtros y resultados -->
+                <div class="shadow p-3 mb-5 bg-white rounded" id="capaFiltros"> <!-- filtros -->
+
+
+
+
+
+
+
+            <form role="form" id="formularioBuscar" name="formularioBuscar">
+                <div id="div-busqueda"class="container">
+                    <div class="row">
+                        <div class="form-group col-lg-3 col-md-3 col-xs-3">
+                            <label for="texto">Producto/descripcion</label>
+                            <input type="text" id="texto" name="texto" class="form-control" placeholder="Buscar" value="" />
+                        </div>
+                        <div class="form-group col-lg-3 col-md-3 col-xs-3">
+                            <label for="texto">Activos</label>
+                            <select type="text" id="factivo" name="factivo" class="form-control" placeholder="Seleccionar">
+                                <option value="">TODOS</option>
+                                <option value="S">Activo</option>
+                                <option value="N">No activo</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-lg-3 col-md-3 col-xs-3">
+                            <label for="texto">Stock Minimo</label>
+                            <input type="number" id="stock_Minimo" name="stock_Minimo" class="form-control" placeholder="Buscar" value="" />     
+                        </div>
+                        <!-- <div class="form-group col-lg-4 col-md-6 col-xs-6">
+                            <label for="texto">Categoria</label>
+                            <input type="number" id="categoria" name="categoria" class="form-control" placeholder="Buscar" value="" />
+                        </div> -->
+                        
+                    </div>
+
+                    <button type="button" class="btn btn-primary" onclick="buscar(1, $('#cantProduc').val());" style="margin-top:20px;">Buscar</button>
+                    <button type="button" class="btn btn-primary" onclick="limpiar();" style="margin-top:20px;">Limpiar filtros</button>
+                    <button type="button" class="btn btn-primary" onclick="addVistaInsertar('Productos', 'getVistaInsertar');" style="margin-top:20px;">Nuevo</button>
+                </div>
+
+            </form>
+
+
+                </div>
+                <div class="shadow p-3 mb-5 bg-white rounded" id="capaResultado">jiji</div> <!-- capa para mostrar tabla de resultados -->
+                    <div class="container-fluid" id="resultContent">
+                        
+                    
+                    </div>
+                <footer class="container-fluid" id="footer">jiji</footer> <!-- pues el footer nose -->
+                <!-- contenido a mostrar-->
             </div>
         </div>
     </div>
@@ -127,3 +179,16 @@
 </body>
 
 </html>
+
+<script>
+function cargaFiltros(){
+    document.getElementById("capaFiltros").innerHTML='<object type="text/html" data="V_Eventos.php" ></object>';
+
+}
+</script>
+
+<script>
+    $(document).ready(function(){
+        $('#tablaEventos').DataTable();
+    });
+</script>

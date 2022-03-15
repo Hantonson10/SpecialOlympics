@@ -1,0 +1,43 @@
+body{
+    background-color: lightgray;
+}
+
+#img1 {
+    object-fit: cover;
+    opacity: 80%;
+  }
+
+#logoBackgroundLogin{
+    opacity: 8%;
+    object-fit: fill;
+    position: absolute;
+}
+
+#loginForm{
+    z-index:10;
+}
+
+.container-fluid{
+    padding: 0 !important;
+}
+
+.leftSide, .rightSide{
+    height: 100vh;
+    width: 100%;
+}
+
+
+.leftSide{
+    background: rgb(203,203,203);
+}
+
+.rightSide{
+    background: rgb(237,241,245);
+    position: relative;
+    /*background: linear-gradient(0deg, rgba(203,203,203,1) 0%, rgba(222,222,222,1) 50%, rgba(231,231,231,1) 100%);*/
+}
+
+.row{
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+}

@@ -4,8 +4,43 @@ body {
 
 #navbarColum{
     background-color: rgb(37,40,58) !important;
+    overflow-y: scroll !important;
+    top: 0 !important;
+    bottom: 0 !important;
+    -ms-overflow-style: none;  /* Internet Explorer 10+ */
+    scrollbar-width: none;  /* Firefox */
+}
+
+::-webkit-scrollbar {
+    width: 0;  /* Remove scrollbar space */
+    background: transparent;  /* Optional: just make scrollbar invisible */
 }
 
 a, a:visited{
     color: white !important;
+}
+#capaContenido{
+    padding: 0 !important;
+    margin: 0 !important;
+    
+}
+
+#capaFiltros{
+    background-color: white;
+
+    margin: 1rem !important;
+    margin-right: 1rem !important;
+}
+
+#capaResultado{
+    background-color: white;
+    margin: 1rem !important;
+}
+
+#footer{
+    height: 10%;
+    position: fixed;
+    background-color: rgb(46, 48, 63);
+    color: white;
+    bottom: 0;
 }
