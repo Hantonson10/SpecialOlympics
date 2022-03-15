@@ -4,17 +4,28 @@ body {
 
 #navbarColum{
     background-color: rgb(37,40,58) !important;
+    
+}
+
+#nav{
     overflow: hidden !important;
     top: 0 !important;
     bottom: 0 !important;
     -ms-overflow-style: none;  /* Internet Explorer 10+ */
     scrollbar-width: none;  /* Firefox */
 }
+#Contenido{
+    height: 100vh !important;
+}
 
 #capaContenido{
     overflow: auto !important;
     top: 0 !important;
     bottom: 0 !important;
+    height: 100% !important;
+    max-height: 100vh !important;
+    padding: 0 !important;
+    margin: 0 !important;
     -ms-overflow-style: none;  /* Internet Explorer 10+ */
     scrollbar-width: none;  /* Firefox */
 }
@@ -27,17 +38,13 @@ body {
 a, a:visited{
     color: white !important;
 }
-#capaContenido{
-    padding: 0 !important;
-    margin: 0 !important;
-    
-}
 
 #capaFiltros{
     background-color: white;
 
     margin: 1rem !important;
     margin-right: 1rem !important;
+    margin-bottom: 50px !important;
 }
 
 #capaResultado{
@@ -47,10 +54,12 @@ a, a:visited{
 }
 
 #footer{
-    height: 10%;
-    position: fixed;
     background-color: rgb(46, 48, 63);
+    height: auto !important;
     color: white;
-    bottom: 0;
+    bottom: 0 !important;
     z-index: 100;
+    padding: 1rem !important;
+    margin-bottom: 0 !important;
+    margin: 0 !important;
 }

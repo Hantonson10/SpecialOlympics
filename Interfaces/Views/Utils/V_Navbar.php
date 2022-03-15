@@ -1,4 +1,4 @@
-<div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
+<div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100" id="nav">
                     <a href="http://specialolympicsaragon.es/">
                         <img src="img/icons/logoSOwhite.png" class="mx-auto d-block d-flex align-items-center pb-3 mb-md-0 me-md-auto"
                         style="width:60%;height:60%;"> <!-- ajustamos el tamaño del logo, modificar ambos % a la vez.-->
@@ -6,13 +6,13 @@
                     
                     <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
 <!-- -------------------------------------------------------------------- -->
-                        <li class="nav-item">
+                     <!--   <li class="nav-item">
                             <a id="#navEventos" onclick="getVistaFiltros()" class="nav-link align-middle px-0">
                                 <i class="fs-4 bi-house"></i> <span class="ms-1 d-none d-sm-inline">Eventos</span>
                             </a>
-                        </li>
+                        </li>-->
 
-<!-- Con este fragmento de arriba podemos crear tantos items como queramos -->
+<!-- Con este fragmento de arriba podemos crear tantos items como queramos
 
                         <li>
                             <a href="#submenu1" data-bs-toggle="collapse" class="nav-link px-0 align-middle ">
@@ -26,6 +26,7 @@
                                 </li>
                             </ul>
                         </li>
+-->
 
 
 <!-- Con este fragmento de arriba podemos crear item con desplegable -->
@@ -37,6 +38,11 @@
                         <li>
                             <a href="#" class="nav-link px-0 align-middle">
                                 <i class="fs-4 bi-table"></i> <span class="ms-1 d-none d-sm-inline" onclick="getVistaFiltros('Formacion', 'getVistaFiltros');">Formacion</span></a>
+                        </li>
+
+                        <li>
+                            <a href="#" class="nav-link px-0 align-middle">
+                                <i class="fs-4 bi-table"></i> <span class="ms-1 d-none d-sm-inline" onclick="getVistaFiltros('Material', 'getVistaFiltros');">Materiales</span></a>
                         </li>
 
                         <li>

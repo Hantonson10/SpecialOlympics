@@ -17,9 +17,13 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./css/index.css">
     <link rel="stylesheet" href="./css/style.css">
+    <!-- INSERTAMOS LOS JS DE LOS MODULOS -->
     <script src="./js/index.js"></script>
-    <script src="./js/voluntarios.js"></script>
-    <script src="./js/formacion.js"></script>
+    
+    
+    
+    <!-- ---------------------------------------- -->
+
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.10.20/datatables.min.css">
     <script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.10.20/datatables.min.js"></script>
     
@@ -30,7 +34,7 @@
 
 <body>
     <div class="container-fluid">
-        <div class="row flex-wrap">
+        <div class="row flex-wrap" id="Contenido">
             <div id="navbarColum" class="col-auto col-md-3 col-xl-2 px-sm-2 px-0">
 
             <?php
@@ -48,7 +52,7 @@
                 
             
             
-            <div class="col py-3 flex-column" id="capaContenido"> <!-- capa derecha de la pantalla donde se muestran filtros y resultados -->
+            <div class="col flex-column" id="capaContenido"> <!-- capa derecha de la pantalla donde se muestran filtros y resultados -->
                 <div class="shadow p-3 mb-5 bg-white rounded" id="capaFiltros"> <!-- filtros -->
 
                 </div>

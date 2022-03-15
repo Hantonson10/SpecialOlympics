@@ -1,7 +1,7 @@
 <div class="tituloFiltros">
     <h1>Filtros</h1>
 </div>
-
+<script src="./js/voluntarios.js"></script>
 <form role="form" id="formularioBuscar" name="formularioBuscar">
                 <div id="div-busqueda"class="container">
                     <div class="row">

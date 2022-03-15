@@ -1,7 +1,7 @@
 <div class="tituloFiltros">
     <h1>Filtros</h1>
 </div>
-<script src="./js/formacion.js"></script>
+<script src="./js/material.js"></script>
 
 <form role="form" id="formularioBuscar" name="formularioBuscar">
                 <div id="div-busqueda"class="container">
@@ -18,8 +18,13 @@
                         </div>
                         <!-- buscamos por entidad -->
                         <div class="form-group col-lg-4 col-md-4 col-xs-4">
-                            <label for="texto">Entidad</label>
-                            <input type="text" id="entidad" name="entidad" class="form-control" placeholder="entidad" value="" />
+                            <label for="texto">Motivo</label>
+                            <input type="text" id="motivo" name="motivo" class="form-control" placeholder="motivo" value="" />
+                        </div>
+                        <!-- buscamos por Cantidad -->
+                        <div class="form-group col-lg-4 col-md-4 col-xs-4">
+                            <label for="texto">Cantidad</label>
+                            <input type="text" id="cantidad" name="cantidad" class="form-control" placeholder="cantidad" value="" />
                         </div>
                         
                         
@@ -29,14 +34,14 @@
                     <!-- Boton para limpiar filtros -->
                     <button type="button" class="btn btn-primary" onclick="limpiar();" style="margin-top:20px;">Limpiar filtros</button>
                     <!-- Boton para cambiar de filtros a insertar -->
-                    <button type="button" class="btn btn-primary" onclick="getVista('Formacion', 'getVistaInsertar');" style="margin-top:20px;">Nuevo</button>
+                    <button type="button" class="btn btn-primary" onclick="getVista('Material', 'getVistaInsertar');" style="margin-top:20px;">Nuevo</button>
                 </div>
 
             </form>
 
 
 
-    <!-- cuando carga los filtros, activa un script que llama a la función buscar-->
+    <!-- cuando carga los filtros, activa una función que llama a la función buscar-->
     <!-- Estaría interesante guardar la variable en un localStorage -->        
     <script type="text/javascript">
         var onLoadPage = (function() {
