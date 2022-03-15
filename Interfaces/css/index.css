@@ -1,0 +1,12 @@
+#logoFooter{
+    vertical-align: middle;
+    width: 5%;
+    height: 5%;
+    padding-top: 10px;
+}
+
+.helper{
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+}

@@ -7,7 +7,7 @@ $metodo=$_POST['metodo'];
 
 $nombreControlador='C_'.$controlador;
 
-require_once 'controladores/'.$nombreControlador.'.php';
+require_once 'Controllers/'.$controlador.'/'.$nombreControlador.'.php';
 $objControlador=new $nombreControlador();
 
 $objControlador->$metodo($getPost);

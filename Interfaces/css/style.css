@@ -4,7 +4,15 @@ body {
 
 #navbarColum{
     background-color: rgb(37,40,58) !important;
-    overflow-y: scroll !important;
+    overflow: hidden !important;
+    top: 0 !important;
+    bottom: 0 !important;
+    -ms-overflow-style: none;  /* Internet Explorer 10+ */
+    scrollbar-width: none;  /* Firefox */
+}
+
+#capaContenido{
+    overflow: auto !important;
     top: 0 !important;
     bottom: 0 !important;
     -ms-overflow-style: none;  /* Internet Explorer 10+ */
@@ -35,6 +43,7 @@ a, a:visited{
 #capaResultado{
     background-color: white;
     margin: 1rem !important;
+    margin-bottom: 100px !important;
 }
 
 #footer{
@@ -43,4 +52,5 @@ a, a:visited{
     background-color: rgb(46, 48, 63);
     color: white;
     bottom: 0;
+    z-index: 100;
 }
