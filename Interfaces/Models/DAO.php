@@ -3,7 +3,7 @@
 define('HOST', '127.0.0.1'); //como es local dejamos esa IP.
 define('USER', 'root');
 define('PASS', '');
-define('DB', 'specialolympics');
+define('DB', 'bbddspecialolympics');
 
 
 class DAO{

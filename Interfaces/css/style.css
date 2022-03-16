@@ -4,6 +4,7 @@ body {
 
 #navbarColum{
     background-color: rgb(37,40,58) !important;
+    z-index: 400;
     
 }
 
@@ -19,6 +20,7 @@ body {
 }
 
 #capaContenido{
+    background-color: rgb(238, 238, 238);
     overflow: auto !important;
     top: 0 !important;
     bottom: 0 !important;
@@ -54,12 +56,33 @@ a, a:visited{
 }
 
 #footer{
+    position: absolute;
     background-color: rgb(46, 48, 63);
     height: auto !important;
     color: white;
-    bottom: 0 !important;
+    /*bottom: 0 !important;*/
     z-index: 100;
     padding: 1rem !important;
     margin-bottom: 0 !important;
     margin: 0 !important;
 }
+
+#loading {
+    background-color: rgb(240, 240, 240);
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 200;
+  }
+  
+  #loading-image {
+    padding-left: 300px;
+    width: auto;
+    height: 80%;
+    z-index: 300;
+  }

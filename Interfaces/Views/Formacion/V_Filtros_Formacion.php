@@ -1,5 +1,5 @@
 <div class="tituloFiltros">
-    <h1>Filtros</h1>
+    <h1 class="tituloFiltrosContent">Filtros - Formación</h1>
 </div>
 <script src="./js/formacion.js"></script>
 

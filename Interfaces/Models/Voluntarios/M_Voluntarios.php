@@ -28,6 +28,23 @@ class M_Voluntarios{
     }
     */
 
+    public function login($email, $password){
+        $SQL = "SELECT LOGIN('$email') AS LOGIN";
+        $res = $this->DAO->consultar($SQL);
+        print_r($res);
+        return $res;
+    }
+
+    public function getId($email){
+        $SQL = "SELECT voluntario_id as id FROM voluntario WHERE voluntario_mail = '$email'";
+        return $this->DAO->consultar($SQL)[0];
+    }
+
+    public function getPicAndName($id){
+        $SQL = "SELECT voluntario_foto as pic, voluntario_nombre as name FROM voluntario WHERE voluntario_id = $id";
+        return $this->DAO->consultar($SQL)[0];
+    }
+
     public function getCategorias(){
         $SQL="SELECT id_ProductoCategoria, productoCategoria FROM `Voluntarioscategorias`";
         $res= $this->DAO->consultar($SQL);

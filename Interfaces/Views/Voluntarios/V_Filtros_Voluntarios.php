@@ -1,5 +1,5 @@
 <div class="tituloFiltros">
-    <h1>Filtros</h1>
+    <h1 class="tituloFiltrosContent">Filtros - Voluntarios</h1>
 </div>
 <script src="./js/voluntarios.js"></script>
 <form role="form" id="formularioBuscar" name="formularioBuscar">

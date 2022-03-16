@@ -46,6 +46,11 @@
                         </li>
 
                         <li>
+                            <a href="#" class="nav-link px-0 align-middle">
+                                <i class="fs-4 bi-table"></i> <span class="ms-1 d-none d-sm-inline" onclick="getVistaFiltros('Actividad', 'getVistaFiltros');">Actividades</span></a>
+                        </li>
+                    <!--
+                        <li>
                             <a href="#submenu2" data-bs-toggle="collapse" class="nav-link px-0 align-middle ">
                                 <i class="fs-4 bi-bootstrap"></i> <span class="ms-1 d-none d-sm-inline">Campus</span></a>
                             <ul class="collapse nav flex-column ms-1" id="submenu2" data-bs-parent="#menu">
@@ -76,7 +81,7 @@
                                 </li>
                             </ul>
                         </li>
-
+-->
                         <li>
                             <a href="#" class="nav-link px-0 align-middle">
                                 <i class="fs-4 bi-people"></i> <span class="ms-1 d-none d-sm-inline">Zona admin</span> </a>
@@ -84,15 +89,13 @@
 
                     </ul>
                     <hr>
-                    <!-- zona de usuario donde le pasaremos su foto y nombre. -->
+                    <!-- zona de usuario donde le pasaremos su foto y nombre.  https://github.com/mdo.png-->
                     <div class="dropdown pb-4">
                         <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-                            <img src="https://github.com/mdo.png" alt="hugenerd" width="30" height="30" class="rounded-circle">
-                            <span class="d-none d-sm-inline mx-1">loser</span>
+                            <img src="<?php echo $datos['User']['pic'];?>" alt="hugenerd" width="30" height="30" class="rounded-circle">
+                            <span class="d-none d-sm-inline mx-1"><?php echo $datos['User']['name'];?></span>
                         </a>
                         <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
-                            <li><a class="dropdown-item" href="#">New project...</a></li>
-                            <li><a class="dropdown-item" href="#">Settings</a></li>
                             <li><a class="dropdown-item" href="#">Profile</a></li>
                             <li>
                                 <hr class="dropdown-divider">

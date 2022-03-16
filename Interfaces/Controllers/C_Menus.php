@@ -7,9 +7,10 @@ class C_Menus{
     public function __construct(){
 		$this->modelo=new M_Menus();
 	}
-    public function getMenu(){
+    public function getMenu($datos = array()){
         //echo 'Esto es el menú';
-        Vista::render('Views/Utils/V_Navbar.php');   
+        //echo ($datos['User']['pic']);
+        Vista::render('Views/Utils/V_Navbar.php',$datos);   
     }
 
     //Carga el menu en la aplicacion:

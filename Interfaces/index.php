@@ -1,4 +1,12 @@
 <?php session_start();
+    require_once './Controllers/Voluntarios/C_Voluntarios.php';
+    
+    if(!isset ($_SESSION['id'])){
+        header('Location: login.php');
+    } else {
+        $C_volun = new C_Voluntarios();
+        $uData = $C_volun->getNavData($_SESSION['id']);
+    }
 
 ?>
 
@@ -17,6 +25,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./css/index.css">
     <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/theme.scss">
     <!-- INSERTAMOS LOS JS DE LOS MODULOS -->
     <script src="./js/index.js"></script>
     
@@ -41,23 +50,36 @@
                 
             require_once 'Controllers/C_Menus.php';
             $menu=new C_Menus();
-            $menu->getMenu();
+            $menu->getMenu(array('User' => $uData));
             
             /*
             include 'vistas/Menus/V_Menu_Html.php';*/
             ?>
 
-
-
                 
             
             
             <div class="col flex-column" id="capaContenido"> <!-- capa derecha de la pantalla donde se muestran filtros y resultados -->
-                <div class="shadow p-3 mb-5 bg-white rounded" id="capaFiltros"> <!-- filtros -->
+                <!-- div donde metemos la imagen que hará de holder hasta que carguemos alguna vista-->
+                <div id="loading" class="">
+
+                    <img id="loading-image" src="./img/icons/logoSOrender.png" alt="Loading..." />
 
                 </div>
-                <div class="shadow p-3 mb-5 bg-white rounded" id="capaResultado"></div> <!-- capa para mostrar tabla de resultados -->
+                <!-- con este script escondemos la capa de la imagen al darle click a cualquier de los getVistaFiltros -->
+                <script>
+                    function loader() {
+                        $('#loading').hide();
+                    } 
+                </script>
 
+                <!-- CAPA DONDE SE CARGAN LOS FILTROS -->
+                <div class="shadow p-3 mb-5 bg-white rounded" id="capaFiltros"> <!-- filtros --></div>
+
+                <!-- CAPA DONDE SE CARGAN LOS RESULTADOS -->
+                <div class="shadow p-3 mb-5 bg-white rounded" id="capaResultado"></div> <!-- capa para mostrar tabla de resultados -->
+                
+                <!-- CAPA DONDE SE CARGA EL FOOTER -->
                 <div class="" id="footer">
                     <div class="row">
                         <img id="logoFooter" class="helper" src="./img/icons/logoSOwhite.png" width="100%" height="100%">
@@ -65,14 +87,35 @@
 
 
                 </div>
-
-
-            <!-- FOOTER -->
                 
             </div>
             
         </div>
+
+
+        <!--
+            <div id="loading" class="">
+
+                <img id="loading-image" src="./img/icons/logoSOrender.png" alt="Loading..." />
+
+            </div>
+-->
+            
     </div>
+
+    <script>
+
+    $(document).ready(function() {
+
+    var docHeight = $('#capaContenido').height();
+    var footerHeight = $('#footer').height();
+    var footerTop = $('#footer').position().top + footerHeight;
+
+    if (footerTop < docHeight) {
+    $('#footer').css('margin-top', 10+ (docHeight - footerTop) + 'px');
+    }
+    });
+    </script>
 
 </body>
 
