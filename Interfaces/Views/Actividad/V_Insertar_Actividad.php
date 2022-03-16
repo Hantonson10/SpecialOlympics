@@ -1,5 +1,5 @@
 <div class="tituloFiltros">
-    <h1 class="tituloFiltrosContent">Insertar - Materiales</h1>
+    <h1 class="tituloFiltrosContent">Insertar - Actividades</h1>
 </div>
 
 

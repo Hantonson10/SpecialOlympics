@@ -17,6 +17,11 @@ Class C_Voluntarios{
         /*$categorias = $this->modelo->getCategorias();*/
         Vista::render('Views/Voluntarios/V_Voluntarios_Insertar.php');
     }
+    /* Mostramos la vista del perfil */
+    public function getVistaPerfil(){
+        $res = $this->modelo->getDatosPerfil($_SESSION['id']);
+        Vista::render('Views/Voluntarios/V_Perfil_Voluntarios.php', $res);
+    }
     /* Mostramos la vista de editar */
     public function getVistaEditar(){
         $filas = $this->modelo->getCategorias();
@@ -49,6 +54,23 @@ Class C_Voluntarios{
         return $this->modelo->getPicAndName($id);
     }
 
+    public function guardar($registro){ //le damos un valor a cada variable y vamos al modelo
+        
+
+        $msg = $this->modelo->guardar($registro);
+        Vista::render('Views/Voluntarios/V_ToastGuardar_Voluntarios.php',$msg);
+        //echo json_encode($respuesta);
+    }
+
+    public function cambiarContraseña($registro){ //le damos un valor a cada variable y vamos al modelo
+        
+
+        $msg = $this->modelo->cambiarContraseña($registro);
+        Vista::render('Views/Voluntarios/V_ToastGuardar_Voluntarios.php',$msg);
+        //echo json_encode($respuesta);
+    }
+
+
     /*  NO SE USA EN ESTE MODULO */
     /*
     public function insertar($registro){ //le damos un valor a cada variable y vamos al modelo
@@ -80,23 +102,7 @@ Class C_Voluntarios{
 
 
 
-    public function guardar($registro){ //le damos un valor a cada variable y vamos al modelo
-        $id_Producto =  $registro['id_Producto'];
-        $producto =  $registro['producto'];
-        $descripcion = $registro['descripcion'];
-        $factivo =  $registro['factivo'];
-        $stock = $registro['stock'];
-        $stock_Minimo = $registro['stock_Minimo'];
-        $stock_Vendido = $registro['stock_Vendido'];
-        $precio_Compra = $registro['precio_Compra'];
-        $precio_Venta = $registro['precio_Venta'];
-        $categoria = $registro['categoria'];
-        
-
-        $filas = $this->modelo->guardar($registro);
-
-        //echo json_encode($respuesta);
-    }
+    
     */
 
 /*

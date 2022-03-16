@@ -75,32 +75,67 @@ function editar(id_Producto){
     })
 }
 
-function mostrarEditar(){
-    document.getElementById("capaEdicion").style.visibility = "visible";
-    $(window).scrollTop(1050);
-}
 
 function guardar() {
-    var parametros = '&controlador=Productos';
+    var parametros = '&controlador=Voluntarios';
     parametros += '&metodo=guardar';
-    parametros += '&' + $('#formularioEditar').serialize(); /*le pasamos todos los parametros del form al controlador*/
+    parametros += '&' + $('#formularioPerfil').serialize(); /*le pasamos todos los parametros del form al controlador*/
     $.ajax({
         url: 'C_Ajax.php', //donde
         type: 'post',    //tipo
         data: parametros, //que va a seleccionar
-        dataType: 'json',
         success: function (respuesta) { //donde tengo que sacar los resultados
-        
-            if(registros=="error1"){
-                window.alert("Producto ya existente. Por favor vuelve a rellenar los campos.")
-            } else {
-                window.alert ("Fila editada");
-                getVista('Productos', 'getVistaFiltros');
-            }
+            
+            
+            $('#capaContenido').append(respuesta)
+            setTimeout(function(){
+                location.reload();
+            },1000);
         }
         
     })
 }
+
+function cambiarContraseña() {
+    var parametros = '&controlador=Voluntarios';
+    parametros += '&metodo=cambiarContraseña';
+    parametros += '&' + $('#formularioContrasena').serialize(); /*le pasamos todos los parametros del form al controlador*/
+    $.ajax({
+        url: 'C_Ajax.php', //donde
+        type: 'post',    //tipo
+        data: parametros, //que va a seleccionar
+        success: function (respuesta) { //donde tengo que sacar los resultados
+            
+            
+            $('#capaContenido').append(respuesta)
+            
+        }
+        
+    })
+}
+
+
+function guardarFoto() {
+    var parametros = '&controlador=Voluntarios';
+    parametros += '&metodo=guardar';
+    parametros += '&fotoPerfil=' + $('#inputFoto').val(); /*le pasamos todos los parametros del form al controlador*/
+    $.ajax({
+        url: 'C_Ajax.php', //donde
+        type: 'post',    //tipo
+        data: parametros, //que va a seleccionar
+        success: function (respuesta) { //donde tengo que sacar los resultados
+            
+            
+            getVistaPerfil('Voluntarios', 'getVistaPerfil');
+            setTimeout(function(){
+                location.reload();
+            },1500);
+        }
+        
+    })
+}
+
+
 
 function checkearGuardar() {
     let allAreFilled = true;

@@ -95,12 +95,12 @@
                             <img src="<?php echo $datos['User']['pic'];?>" alt="hugenerd" width="30" height="30" class="rounded-circle">
                             <span class="d-none d-sm-inline mx-1"><?php echo $datos['User']['name'];?></span>
                         </a>
-                        <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
-                            <li><a class="dropdown-item" href="#">Profile</a></li>
+                        <ul class="dropdown-menu dropdown-menu-dark text-small shadow" id="dropDrownNav">
+                            <li><a class="dropdown-item" onclick="getVistaPerfil('Voluntarios', 'getVistaPerfil');">Perfil</a></li>
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
-                            <li><a class="dropdown-item" href="#">Sign out</a></li>
+                            <li><a class="dropdown-item" href="logout.php">Cerrar Sesion</a></li>
                         </ul>
                     </div>
                 </div>
