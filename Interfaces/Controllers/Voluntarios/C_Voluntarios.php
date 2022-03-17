@@ -24,8 +24,9 @@ Class C_Voluntarios{
     }
     /* Mostramos la vista del perfil */
     public function getVistaPerfil(){
-        $res = $this->modelo->getDatosPerfil($_SESSION['id']);
-        Vista::render('Views/Voluntarios/V_Perfil_Voluntarios.php', $res);
+        $data = $this->modelo->getDatosPerfil($_SESSION['id']);
+        $docs = $this->modelo->getDocumentos($_SESSION['id']);
+        Vista::render('Views/Voluntarios/V_Perfil_Voluntarios.php', array("usuario"=>$data, "docs" => $docs));
     }
     /* Mostramos la vista del listado pasando los datos de los filtros */
     public function buscar($filtros){
@@ -33,6 +34,9 @@ Class C_Voluntarios{
         Vista::render('Views/Voluntarios/V_Listado_Voluntarios.php', $filas);
     }
 
+    public function addDoc($filtros){
+        echo $this->modelo->addDoc($filtros);
+    }									 
     public function login($filtros){
         $res = $this->modelo->login($filtros['email'],$filtros['password']);
         if(!empty($res)){

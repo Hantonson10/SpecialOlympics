@@ -37,7 +37,53 @@ function insertar() {
         }
 
     })
+}
       
+function addDoc($id) {
+    //alert("Insertar nuevo documento");
+    $('#i_file-input-'+$id).html('<img src=\"./img/icons/loading-progress.png\" />');
+    var fd = new FormData();
+    var files = $('#file-input-'+$id)[0].files[0];
+    fd.append('file', files);
+
+    var param = "&controlador=Voluntarios" +
+        "&metodo=addDoc" +
+        "&id=" + $id;
+
+    $.ajax({
+        url: 'upload.php',
+        type: 'post',
+        data: fd,
+        contentType: false,
+        processData: false,
+        success: function (location) {
+            if (location != 0) {
+                //alert('file uploaded');
+                param += "&location="+location;
+                $.ajax({
+                    url: 'C_Ajax.php', //donde
+                    type: 'post',    //tipo
+                    data: param, //que va a seleccionar
+                    success: function (response) { 
+                        if(response != -1){ //Insertado
+                            //Update No aportado a Aportado y la imagen al tick verde
+                            //alert("database modified");
+                            $('#status-' + $id).html('Aportado');
+                            $('#icon-'+$id).html('<img src="./img/icons/check_green.png" alt="añadir" width="30" height="30">');
+                            $('#doc-link-'+$id).attr('href', location);
+                        } else {
+                            alert("Error");
+                            $('#i_file-input-'+$id).html('<img src=\"./img/icons/add-file--v2.png\" />');
+                        }
+                    }
+
+                })
+            }
+            else {
+                alert('Error. Vuelva a intentarlo');
+            }
+        },
+    });
 }
 
 function checkearInsert() {

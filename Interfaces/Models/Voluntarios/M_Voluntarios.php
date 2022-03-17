@@ -62,7 +62,19 @@ class M_Voluntarios
         $SQL = "SELECT * from voluntario where voluntario_id = $voluntario_id";
         return $this->DAO->consultar($SQL)[0];
     }
+	public function getDocumentos($id){
+        $SQL = "SELECT D.documento_id, D.documento_url, DT.documento_tipo_nombre FROM documento D INNER JOIN documento_tipo DT ON D.documento_tipo = DT.documento_tipo_id WHERE D.documento_voluntario = $id";
+        return $this->DAO->consultar($SQL);
+    }
+	public function addDoc($filtros = array()){
+        $location = '';
+        $id = '';
+        extract($filtros);
 
+        $SQL = "UPDATE documento SET documento_url = '$location' WHERE documento_id = $id";
+        $res = $this->DAO-> actualizar($SQL);
+        return $res;
+    }
     public function buscar($filtros = array())
     {
         $voluntario_id = '';
