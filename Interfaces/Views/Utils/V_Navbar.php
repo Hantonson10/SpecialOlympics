@@ -2,7 +2,7 @@
 
 
 <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100" id="nav">
-                    <a href="http://specialolympicsaragon.es/" class="nav-a">
+                    <a href="" onclick="showLoader();" class="nav-a" style="margin-top: 2rem;">
                         <img src="img/icons/logoSOwhite.png" class="mx-auto d-block d-flex align-items-center pb-3 mb-md-0 me-md-auto"
                         style="width:60%;height:60%;"> <!-- ajustamos el tamaño del logo, modificar ambos % a la vez.-->
                     </a>

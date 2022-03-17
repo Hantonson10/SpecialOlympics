@@ -33,8 +33,6 @@ li{
     overflow: auto !important;
     top: 0 !important;
     bottom: 0 !important;
-    height: 100% !important;
-    max-height: 100vh !important;
     padding: 0 !important;
     margin: 0 !important;
     -ms-overflow-style: none;  /* Internet Explorer 10+ */

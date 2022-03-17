@@ -73,6 +73,11 @@
                         $('#loading').hide();
                     } 
                 </script>
+                <script>
+                    function showloader() {
+                        $('#loading').show();
+                    } 
+                </script>
 
                 <!-- CAPA DONDE SE CARGAN LOS FILTROS -->
                 <div class="shadow p-3 mb-5 bg-white rounded" id="capaFiltros"> <!-- filtros --></div>
@@ -92,30 +97,20 @@
             </div>
             
         </div>
-
-
-        <!--
-            <div id="loading" class="">
-
-                <img id="loading-image" src="./img/icons/logoSOrender.png" alt="Loading..." />
-
-            </div>
--->
             
     </div>
 
     <script>
+        $(document).ready(function() {
 
-    $(document).ready(function() {
+        var docHeight = $('#capaContenido').height();
+        var footerHeight = $('#footer').height();
+        var footerTop = $('#footer').position().top + footerHeight;
 
-    var docHeight = $('#capaContenido').height();
-    var footerHeight = $('#footer').height();
-    var footerTop = $('#footer').position().top + footerHeight;
-
-    if (footerTop < docHeight) {
-    $('#footer').css('margin-top', 10+ (docHeight - footerTop) + 'px');
-    }
-    });
+        if (footerTop < docHeight) {
+        $('#footer').css('margin-top', 10+ (docHeight - footerTop) + 'px');
+        }
+        });
     </script>
 
 </body>
