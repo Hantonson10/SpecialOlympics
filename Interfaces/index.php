@@ -26,6 +26,7 @@
     <link rel="stylesheet" href="./css/index.css">
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/theme.scss">
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
     <!-- INSERTAMOS LOS JS DE LOS MODULOS -->
     <script src="./js/index.js"></script>
     

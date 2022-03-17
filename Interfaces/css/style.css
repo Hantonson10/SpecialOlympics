@@ -8,6 +8,15 @@ body {
     
 }
 
+#menu{
+    margin-top: 2rem;
+    font-size: x-large;
+}
+
+li{
+    margin-bottom: 1rem;
+}
+
 #nav{
     overflow: hidden !important;
     top: 0 !important;
@@ -90,3 +99,32 @@ a, a:visited{
   #dropDrownNav{
       background-color: rgb(52,58,64) !important;
   }
+
+  .btn-primary{
+      border-color: rgb(254,10,0) !important;
+      background-color: rgb(254,10,0) !important;
+  }
+  .btn-primary:hover{
+    border-color: rgb(156, 5, 0) !important;
+    background-color: rgb(156, 5, 0) !important;
+}
+    /*Colores botones paginador*/
+
+
+    .page-item.active .page-link{
+        background-color: rgb(52,58,64) !important;
+        border-color: rgb(52,58,64) !important;
+        color: #f3f3f3 !important;
+        }
+
+table.dataTable thead{
+    background: rgb(46, 48, 63);
+    color:white;
+    border-color: 1px solid rgb(46, 48, 63) !important;
+    padding-left: 15px;
+}
+table.dataTable tbody{
+    border-color: 3px solid rgb(46, 48, 63) !important;
+}
+
+    

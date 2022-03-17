@@ -19,7 +19,7 @@ function limpiar() {
 
 
 function insertar() {
-    var parametros = '&controlador=Productos';
+    var parametros = '&controlador=Voluntarios';
     parametros += '&metodo=insertar';
     parametros += '&' + $('#formularioInsertar').serialize(); /*le pasamos todos los parametros del form al controlador*/
     $.ajax({
@@ -29,16 +29,15 @@ function insertar() {
         success: function (registros) { //donde tengo que sacar los resultados
             
             if(registros=="error1"){
-                window.alert("Producto ya existente. Por favor vuelve a rellenar los campos.")
+                window.alert("voluntario ya existente. Por favor vuelve a rellenar los campos.")
             } else {
                 window.alert ("Fila añadida");
-                getVista('Productos', 'getVistaFiltros');
+                getVista('Voluntarios', 'getVistaFiltros');
             }
         }
 
     })
-    
-    
+      
 }
 
 function checkearInsert() {
@@ -59,17 +58,18 @@ function checkearInsert() {
 }
 
 
-function editar(id_Producto){
-    var parametros = '&controlador=Productos';
-    parametros += '&metodo=Editar';
-    parametros += '&id_Producto=' + id_Producto; //pasamos id en parametros
+function infoVoluntario(voluntario_id){
+    var parametros = '&controlador=Voluntarios';
+    parametros += '&metodo=getVistaFiltrosInfo';
+    parametros += '&voluntario_id=' + voluntario_id; //pasamos id en parametros
     $.ajax({
         url: 'C_Ajax.php', //donde
         type: 'post',    //tipo
         data: parametros, //que va a seleccionar
         success: function (vista) { //donde tengo que sacar los resultados
-            $('#capaEdicion').html(vista);
-            
+            $('#capaFiltros').html(vista);
+            //getVista('Voluntarios', 'getVistaFiltrosInfo');
+            console.log(voluntario_id);
         }
 
     })
@@ -158,22 +158,6 @@ function volver(){
     getVista('Productos', 'getVistaFiltros');
     buscar();
 }
-
-
-function getRowsNumber(){
-    var parametros = "&controlador=Productos";
-    parametros += "&metodo=getRowsNumber";
-    parametros += "&" + $("#formularioBuscar").serialize();
-    $.ajax({
-      url: "C_Ajax.php",
-      type: "post",
-      data: parametros,
-      success: function (vista) {
-        $("#capaResultadosBusqueda").html(vista);
-      },
-    });
-  }
-
 
 
 

@@ -37,8 +37,7 @@ function insertar() {
         }
 
     })
-    
-    
+      
 }
 
 function checkearInsert() {

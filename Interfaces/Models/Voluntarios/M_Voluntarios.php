@@ -55,11 +55,12 @@ class M_Voluntarios
         return $this->DAO->consultar($SQL)[0];
     }
 
-    public function getCategorias()
+    public function getVistaFiltrosInfo($voluntario_id=array())
     {
-        $SQL = "SELECT id_ProductoCategoria, productoCategoria FROM `Voluntarioscategorias`";
-        $res = $this->DAO->consultar($SQL);
-        return $res;
+        $voluntario_id = '';
+        //HAY QUE HACER UN JOIN CON VARIAS TABLAS
+        $SQL = "SELECT * from voluntario where voluntario_id = $voluntario_id";
+        return $this->DAO->consultar($SQL)[0];
     }
 
     public function buscar($filtros = array())
@@ -153,31 +154,43 @@ class M_Voluntarios
     }
 
 
-    public function insertar($registro = array())
-    {
+    public function insertar($registro=array()){
         /*declaramos variables vacias de SQL y las insertamos*/
-        $producto = '';
-        $descripcion = '';
-        $factivo = '';
-        $stock = '';
-        $stock_Minimo = '';
-        $stock_Vendido = '';
-        $precio_Compra = '';
-        $precio_Venta = '';
-        $categoria = '';
+        $voluntario_id='';
+        $nombre='';
+        $apellido='';
+        $tel1='';
+        $tel2='';
+        $telEmer='';
+        $fechaAlta='';
+        $fechaNacimiento='';
+        $DNI='';
+        $email='';
+        $foto='http://specialolympicsaragon.es/wp-content/uploads/2019/11/cropped-logo-SOA-rojo-red-4-scaled.jpg';
+        $ocupacion='';
+        $hobbies='';
+        $direccion='';
+        $cod_postal='';
+        $talla='';
+        $tallaPie='';
+        $tallaPantalon='';
         extract($registro);
 
-        $CHECK = "SELECT id_Producto from Voluntarios WHERE producto= '$producto' ";
+        $CHECK= "SELECT voluntario_id from voluntario WHERE voluntario_nombre= '$nombre' ";
         $resultadoConsulta = $this->DAO->consultar($CHECK);
-        if (!empty($resultadoConsulta)) {
+        if (!empty($resultadoConsulta)){
             return "error1";
         }
 
-        $SQL = "INSERT INTO Voluntarios (producto, descripcion, activo, stock, stock_Minimo, Stock_Vendido, precio_Compra, precio_Venta, id_categoria)
-        VALUES ('$producto', '$descripcion','$factivo','$stock','$stock_Minimo','$stock_Vendido','$precio_Compra','$precio_Venta','$categoria')";
-        $res = $this->DAO->insertar($SQL);
-
-        //$SQL="INSERT INTO Voluntarios (producto, descripcion, id_Categoria, stock, precio_Compra, precio_Venta,stock_Vendido,stock_Minimo,activo) ";
+        $SQL="INSERT INTO voluntario (`voluntario_nombre`, `voluntario_apellidos`, `voluntario_tel1`, 
+        `voluntario_tel2`, `voluntario_tel_emerg`, `voluntario_f_alta`, `voluntario_foto`, `voluntario_f_nac`, `voluntario_dni`, 
+        `voluntario_mail`, `voluntario_ocupacion`, `voluntario_hobbies`, `voluntario_direccion`, 
+        `voluntario_cpostal`, `voluntario_tall_camiseta`, `voluntario_tall_pie`, `voluntario_tall_pantalon`) VALUES 
+        ('$nombre','$apellido','$tel1','$tel2','$telEmer','$fechaAlta', '$foto', '$fechaNacimiento','$DNI','$email',
+        '$ocupacion','$hobbies','$direccion','$cod_postal','$talla','$tallaPie','$tallaPantalon')";
+        $res= $this->DAO->insertar($SQL);
+        
+        //$SQL="INSERT INTO voluntario (producto, descripcion, id_Categoria, stock, precio_Compra, precio_Venta,stock_Vendido,stock_Minimo,activo) ";
         return $res;
         echo $res;
     }

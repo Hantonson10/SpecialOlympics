@@ -4,6 +4,7 @@
 <link rel="stylesheet" type="text/css" href="datatables/DataTables-1.11.3/css/datatables.bootstrap5.min.css">
 <script type="text/javascript" charset="utf8" src="datatables/datatables.min.js"></script>
 
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.js"></script>
 <!doctype html>
 <html lang="en">
   <head>
@@ -14,12 +15,6 @@
 
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.10.20/datatables.min.css"/>  
 <title></title>
-<style>
-    table.dataTable thead {
-        background: linear-gradient(to right, #000000, #000000);
-        color:white;
-    }
-</style>  
 
 </head>
 <body>
@@ -27,7 +22,7 @@
 <div class="container">
        <div class="row">
            <div class="col-lg-12">
-            <table id="tablaVoluntarios" class="table-striped table-bordered" style="width:100%">
+            <table id="tablaVoluntarios" class="table-striped table-bordered display" style="width:100%">
                 <thead class="text-center"> <!-- titulos tabla -->
                     <th>Nombre</th>
                     <th>Apellidos</th>
@@ -35,6 +30,8 @@
                     <th>Email</th>
                     <th>Direccion</th>
                     <th>Codigo Postal</th>
+                    <th>Boton Editar</th>
+
                 </thead>
                 <tbody>
                     <?php
@@ -47,6 +44,9 @@
                         <td><?php echo $fila['voluntario_mail']?></td>
                         <td><?php echo $fila['voluntario_direccion']?></td>
                         <td><?php echo $fila['voluntario_cpostal']?></td>
+                        <td><button class="btn btn-primary" type="button" 
+                        onclick="infoVoluntario(<?php echo $fila['voluntario_id']?>)">Info</button>
+                        </td>
                     </tr>
                     <?php
                         }
@@ -64,7 +64,7 @@
 <script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.10.20/datatables.min.js"></script>  
       
  <!-- configuración de la tabla con datatables, donde se configura tambien el paginador -->     
-<script>
+ <script>
 $(document).ready(function() {
     $('#tablaVoluntarios').DataTable({
      
@@ -73,6 +73,7 @@ $(document).ready(function() {
         scrollX: true,
         scrollY: 700,
         scrollCollapse: true,
+        
         columnDefs: [
             {
                 targets:[],

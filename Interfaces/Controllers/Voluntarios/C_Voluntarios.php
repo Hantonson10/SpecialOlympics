@@ -12,20 +12,20 @@ Class C_Voluntarios{
     public function getVistaFiltros(){
         Vista::render('Views/Voluntarios/V_Filtros_Voluntarios.php');
     }
+    /* Mostramos la vista de filtros INFO */
+    public function getVistaFiltrosInfo($id){
+        $res = $this->modelo->getVoluntarioInfo($id);
+        Vista::render('Views/Voluntarios/V_FiltrosInfo_Voluntarios.php');
+    }
     /* Mostramos la vista de insertar */
     public function getVistaInsertar(){
         /*$categorias = $this->modelo->getCategorias();*/
-        Vista::render('Views/Voluntarios/V_Voluntarios_Insertar.php');
+        Vista::render('Views/Voluntarios/V_Insertar_Voluntarios.php');
     }
     /* Mostramos la vista del perfil */
     public function getVistaPerfil(){
         $res = $this->modelo->getDatosPerfil($_SESSION['id']);
         Vista::render('Views/Voluntarios/V_Perfil_Voluntarios.php', $res);
-    }
-    /* Mostramos la vista de editar */
-    public function getVistaEditar(){
-        $filas = $this->modelo->getCategorias();
-        Vista::render('Views/Voluntarios/V_Voluntarios_Editar.php',$filas);
     }
     /* Mostramos la vista del listado pasando los datos de los filtros */
     public function buscar($filtros){
@@ -68,6 +68,31 @@ Class C_Voluntarios{
         $msg = $this->modelo->cambiarContraseña($registro);
         Vista::render('Views/Voluntarios/V_ToastGuardar_Voluntarios.php',$msg);
         //echo json_encode($respuesta);
+    }
+
+
+    public function insertar($registro){ //le damos un valor a cada variable y vamos al modelo
+        $nombre = $registro['nombre'];
+        $apellido=$registro['apellido'];
+        $tel1= $registro['tel1'];
+        $tel2= $registro['tel2'];
+        $telEmer= $registro['telEmer'];
+        $fechaAlta= $registro['fechaAlta'];
+        $fechaNacimiento= $registro['fechaNacimiento'];
+        $DNI= $registro['DNI'];
+        $email= $registro['email'];
+        $ocupacion= $registro['ocupacion'];
+        $hobbies= $registro['hobbies'];
+        $direccion= $registro['direcccion'];
+        $cod_postal= $registro['cod_postal'];
+        $talla= $registro['talla'];
+        $tallaPie= $registro['tallaPie'];
+        $tallaPantalon= $registro['tallaPantalon'];
+        
+
+        $registros = $this->modelo->insertar($registro);
+
+        echo $registros;
     }
 
 
