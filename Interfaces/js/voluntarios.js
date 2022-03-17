@@ -12,6 +12,20 @@ function buscar() {
     });
   }
 
+  function buscarInfo() {
+    var parametros = "&controlador=Voluntarios";
+    parametros += "&metodo=buscarInfo";
+    parametros += "&" + $("#formularioBuscar").serialize();
+    $.ajax({
+      url: "C_Ajax.php",
+      type: "post",
+      data: parametros,
+      success: function (vista) {
+        $("#capaResultado").html(vista);
+      },
+    });
+  }
+
 function limpiar() {
     $('#formularioBuscar')[0].reset();
     buscar();
@@ -41,7 +55,7 @@ function insertar() {
       
 function addDoc($id) {
     //alert("Insertar nuevo documento");
-    $('#i_file-input-'+$id).html('<img src=\"./img/icons/loading-progress.png\" />');
+    $('#i_file-input-'+$id).html('<i class="fas fa-sync fa-spin"></i>');
     var fd = new FormData();
     var files = $('#file-input-'+$id)[0].files[0];
     fd.append('file', files);
@@ -67,7 +81,7 @@ function addDoc($id) {
                     success: function (response) { 
                         if(response != -1){ //Insertado
                             //Update No aportado a Aportado y la imagen al tick verde
-                            //alert("database modified");
+                            alert("database modified");
                             $('#status-' + $id).html('Aportado');
                             $('#icon-'+$id).html('<img src="./img/icons/check_green.png" alt="añadir" width="30" height="30">');
                             $('#doc-link-'+$id).attr('href', location);

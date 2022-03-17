@@ -1,7 +1,7 @@
 <div class="tituloFiltros">
-    <h1 class="tituloFiltrosContent">Filtros - Voluntarios</h1>
+    <h1 class="tituloFiltrosContent">Filtros - Voluntario - <?php echo $datos['voluntario_nombre'];?></h1>
 </div>
-<script src="./js/voluntarios.js"></script>
+<script src="/js/voluntarios.js"></script>
 <form role="form" id="formularioBuscar" name="formularioBuscar">
                 <div id="div-busqueda"class="container">
                     <div class="row">
@@ -32,7 +32,7 @@
                         
                     </div>
                     <!-- Boton para buscar -->         
-                    <button type="button" class="btn btn-primary" onclick="buscar();" style="margin-top:20px;">Buscar</button>
+                    <button type="button" class="btn btn-primary" onclick="buscarInfo();" style="margin-top:20px;">Buscar</button>
                     <!-- Boton para limpiar filtros -->
                     <button type="button" class="btn btn-primary" onclick="limpiar();" style="margin-top:20px;">Limpiar filtros</button>
                     <!--
